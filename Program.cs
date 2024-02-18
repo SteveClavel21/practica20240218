@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Practica20240218.Models;
+
 namespace Practica20240218
 {
     public class Program
@@ -8,6 +11,10 @@ namespace Practica20240218
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<prueba20240218DBContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("conn"))
+         );
+
 
             var app = builder.Build();
 
